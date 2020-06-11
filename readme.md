@@ -23,10 +23,9 @@ Use http://localhost:4522/customers/
 ### Create Customers
 Creat Customer By Sending Post Request with Json Object to the same Url http://localhost:4522/customers/ 
 
-### Update Customer by Id and Email
+### Update Customer by Id 
 - By Id: Go to The Link http://localhost:4522/customers/(Id) with post request carry the Updated Object with the Same Id In Url.
 
-- By Email: Go to The Link http://localhost:4522/customers/email/(email) with post request holds the Updated Object with the Same email In Url.
 
 ###  Search With Id and Email
 - - By Id: Go to The Link http://localhost:4522/customers/(Id) with Get request holds the Same Id In Url.
