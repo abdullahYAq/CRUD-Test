@@ -79,14 +79,21 @@ exports.SearchByEmail = async function(email){
     }
 }
 
-exports.UpdateCustomerByEmail = async function(emailprams, name, email, address){
-    try{
-        console.log("update Serv")
-        var customer = await customerMod.updateOne({Email: emailprams}, { $set : {name: name, Email: email, address: address}});
-        //Console.log(customers)
-        //console.log(customer)
-        return customer;
-    } catch (e){
-        throw Error('somthing went wrong.');
-    }
-}
+// exports.UpdateCustomerByEmail = async function(emailprams, name, email, address){
+//     try{
+//         console.log("update Serv")
+//         var customer = await customerMod.findOne({Email: emailprams}, function(err, customer) {
+//             var id = customer.id;
+//             customer.name = name;
+//             customer.Email = email;
+//             customer.address = address;
+            
+//             customer.updateOne({_id: id, { $set : {name: name, Email: email, address: address}});
+//         });
+//         //Console.log(customers)
+//         //console.log(customer)
+//         return customer;
+//     } catch (e){
+//         throw Error('somthing went wrong.');
+//     }
+// }

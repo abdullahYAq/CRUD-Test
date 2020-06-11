@@ -87,21 +87,16 @@ exports.SearchByEmail = async function(req, res){
     }
 }
 
-exports.UpdateCustomerByEmail = async function(req, res){
-    try{
-        var emailPram = req.params.email;
-        var name = req.body.name;
-        var Email = req.body.Email;
-        var address = req.body.address;
-        //console.log(email)
-        if (email){
-            var customer = await customerServ.UpdateCustomerByEmail(emailPram, name,email,address);
-        } else{
-            var customer = "this file is not in DB!";
-        }
+// exports.UpdateCustomerByEmail = async function(req, res){
+//     try{
+       
+//         console.log(emailPram + " " +name+ " " +Email+ " " +address)
+      
+//         var customer = await customerServ.UpdateCustomerByEmail(req.params.email, req.body.name, req.body.Email, req.body.address);
+        
 
-        return res.json({Found: customer});
-    } catch (e) {
-        return e.message; 
-    }
-}
+//         return res.json({Found: customer});
+//     } catch (e) {
+//         return e.message; 
+//     }
+// }
