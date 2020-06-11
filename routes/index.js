@@ -26,6 +26,8 @@ router.delete('/customers/:cusId', customerController.delCustomerById)
 
 router.patch('/customers/:cusId', customerController.UpdateCustomerById)
 
+router.patch('/customers/email/:email', customerController.UpdateCustomerByEmail)
+
 router.route('/customers')
 .get(customerController.getCustomers)
 .post(customerController.saveCustomer);

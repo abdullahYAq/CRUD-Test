@@ -42,7 +42,7 @@ exports.getCustomerById = async function(req, res){
     try{
         var id = req.params.cusId;
         //console.log("GetById Cont")
-        var customer = await customerServ.getCustomers(id);
+        var customer = await customerServ.getCustomersById(id);
         return res.json({CustomerData: customer});
     } catch (e) {
         return e.message; 
@@ -62,11 +62,9 @@ exports.delCustomerById = async function(req, res){
 exports.UpdateCustomerById = async function(req, res){
     try{
         //console.log("Update Cont")
-        if (req.params.cusId){
-            var customer = await customerServ.UpdateCustomersById(req.params.cusId, req.body.name, req.body.Email, req.body.address);
-        } else {
-            var customer = "Id Not Found!";
-        }
+        
+        var customer = await customerServ.UpdateCustomersById(req.params.cusId, req.body.name, req.body.Email, req.body.address);
+        
         return res.json({CustomerUpdated: customer});
     } catch (e) {
         return e.message; 
@@ -81,6 +79,25 @@ exports.SearchByEmail = async function(req, res){
             var customer = await customerServ.SearchByEmail(email);
         } else{
             var customer = "Nothing Here!";
+        }
+
+        return res.json({Found: customer});
+    } catch (e) {
+        return e.message; 
+    }
+}
+
+exports.UpdateCustomerByEmail = async function(req, res){
+    try{
+        var emailPram = req.params.email;
+        var name = req.body.name;
+        var Email = req.body.Email;
+        var address = req.body.address;
+        //console.log(email)
+        if (email){
+            var customer = await customerServ.UpdateCustomerByEmail(emailPram, name,email,address);
+        } else{
+            var customer = "this file is not in DB!";
         }
 
         return res.json({Found: customer});

@@ -35,7 +35,7 @@ exports.saveCustomer = async function(name, email, address){
 exports.getCustomersById = async function(id){
     try{
         console.log("GetById Serv")
-        var customer = await customerMod.findById(id);
+        var customer = await customerMod.findOne({ _id: id });
         //Console.log(customers)
         return customer;
     } catch (e){
@@ -73,6 +73,18 @@ exports.SearchByEmail = async function(email){
         //console.log("GetById Serv")
         var customer = await customerMod.find({"Email": email});
         //Console.log(customers)
+        return customer;
+    } catch (e){
+        throw Error('somthing went wrong.');
+    }
+}
+
+exports.UpdateCustomerByEmail = async function(emailprams, name, email, address){
+    try{
+        console.log("update Serv")
+        var customer = await customerMod.updateOne({Email: emailprams}, { $set : {name: name, Email: email, address: address}});
+        //Console.log(customers)
+        //console.log(customer)
         return customer;
     } catch (e){
         throw Error('somthing went wrong.');
